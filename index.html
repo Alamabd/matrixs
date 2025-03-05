@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Determinan Matriks</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Alat hitung determinan matriks dengan metode sarrus dan minor Kofaktor.">
+    <!-- Social -->
+    <meta property="og:title" content="Determinan Matriks">
+    <meta property="og:description" content="Alat hitung determinan matriks dengan metode sarrus dan minor Kofaktor.">
+    <meta property="og:image" content="./assets/img/banner.png">
+</head>
+
+<body>
+    <div class="text-xl max-sm:text-base p-4 mt-4 my-12 mx-auto border border-gray-200 sm:w-2/3 md:w-1/2 max-sm:m-4">
+        <header>
+            <h1 class="text-xl font-bold text-center">Determinan Matriks</h1>
+            <div class="my-4 text-center">
+                <button onclick="setOrdo(2)" class="px-3 py-2 bg-black text-white rounded cursor-pointer">2x2</button>
+                <button onclick="setOrdo(3)" class="px-3 py-2 bg-black text-white rounded cursor-pointer">3x3</button>
+            </div>
+        </header>
+        <main class="mt-4">
+            <div>
+                <div id="contain" class="mx-auto grid aspect-square justify-items-center gap-2" style="grid-template-columns: repeat(2, minmax(0, 1fr));width: 8rem;">
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded flex justify-center items-center" id="m1"></div>
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded flex justify-center items-center" id="m2"></div>
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded flex justify-center items-center" id="m3"></div>
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded flex justify-center items-center" id="m4"></div>
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded justify-center items-center hidden" id="m5"></div>
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded justify-center items-center hidden" id="m6"></div>
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded justify-center items-center hidden" id="m7"></div>
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded justify-center items-center hidden" id="m8"></div>
+                    <div class="p-2 w-14 h-14 bg-gray-200 border border-gray-200 rounded justify-center items-center hidden" id="m9"></div>
+                </div>
+                <input autocomplete="off" inputmode="numeric" id="inp" class="p-2 mt-4 w-full border border-gray-200" type="text" placeholder="masukkan angka ?">
+                <button onclick="reset()" class="mt-4 w-full px-3 py-2 bg-black text-white rounded">Reset</button>
+            </div>
+            <div class="mt-8 text-center">
+                <button onclick="search('sa')" class="cursor-pointer bg-orange-600 text-white px-3 py-2 rounded">Sarrus</button>
+                <button onclick="search('mk')" class="cursor-pointer bg-orange-600 text-white px-3 py-2 rounded">Minor Kofaktor</button>
+            </div>
+        </main>
+        <footer class="mt-4">
+            <b>OUTPUT</b>
+            <br>
+            <span id="result" class="">
+            </span>
+        </footer>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
