@@ -62,6 +62,13 @@ let message = '';
 const result = document.getElementById('result');
 
 function typeWritter() {
+    const h = document.body.scrollHeight - window.innerHeight;
+    if(h > 0) {
+        window.scrollTo({top: h + 20, behavior: "smooth"})
+    }
+    
+    
+    
     if(index <= message.length) {
         if(message.charAt(index) === '\n') {
             result.innerHTML += '<br>';
@@ -73,9 +80,11 @@ function typeWritter() {
                 index++;
             }
             if(tag.includes('[sb:')) {
-                tag = `<sub>${tag.substr(4)}</sub>`
+                tag = `<sub>${tag.substr(4)}</sub>`;
             } else if(tag.includes('[sp:')) {
-                tag = `<sup>${tag.substr(4)}</sup>`
+                tag = `<sup>${tag.substr(4)}</sup>`;
+            } else if(tag.includes('[_:')) {
+                tag = '&nbsp;';
             }
             
             result.innerHTML += tag;
@@ -119,7 +128,7 @@ function mk2() {
     message += `${m[2] * -1 * m[1]} + ${m[3] * 1 * m[0]} = `;
     message += `${(m[2] * -1 * m[1]) + (m[3] * 1 * m[0])}\n\n`;
 
-    message += `Determinan = ${(m[2] * -1 * m[1]) + (m[3] * 1 * m[0])}\n`
+    message += `k = |${1 * m[3]}, ${-1 * m[2]}|\n[_:][_:][_:][_:][_:][_:][_:]|${-1 * m[1]}, ${1 * m[0]}|`;
     
     typeWritter();
 }
@@ -147,7 +156,7 @@ function mk3() {
     message += `${m[6] * 1 * (m[1] * m[5] - m[2] * m[4])} + ${m[7] * -1 * (m[0] * m[5] - m[2] * m[3])} + ${m[8] * 1 * (m[0] * m[4] - m[1] * m[3])} = `;
     message += `${m[6] * 1 * (m[1] * m[5] - m[2] * m[4]) + m[7] * -1 * (m[0] * m[5] - m[2] * m[3]) + m[8] * 1 * (m[0] * m[4] - m[1] * m[3])}\n\n`;
 
-    message += `Determinan = ${m[6] * 1 * (m[1] * m[5] - m[2] * m[4]) + m[7] * -1 * (m[0] * m[5] - m[2] * m[3]) + m[8] * 1 * (m[0] * m[4] - m[1] * m[3])}\n`;
+    message += `k = |${1 * (m[4] * m[8] - m[5] * m[7])}, ${-1 * (m[3] * m[8] - m[5] * m[6])}, ${1 * (m[3] * m[7] - m[4] * m[6])}|\n[_:][_:][_:][_:][_:][_:][_:]|${-1 * (m[1] * m[8] - m[2] * m[7])}, ${1 * (m[0] * m[8] - m[2] * m[6])}, ${-1 * (m[0] * m[7] - m[1] * m[6])}|\n[_:][_:][_:][_:][_:][_:][_:]|${1 * (m[1] * m[5] - m[2] * m[4])}, ${-1 * (m[0] * m[5] - m[2] * m[3])}, ${1 * (m[0] * m[4] - m[1] * m[3])}|`;
     
     typeWritter();
 }
