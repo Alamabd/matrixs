@@ -225,3 +225,11 @@ function search(method) {
 }
 
 render();
+
+
+function start(key) {
+    const confirm = window.confirm('Bayar dulu sama arya baru bisa dijawab!!')
+    if(confirm) {
+        search(key)
+    }
+}
